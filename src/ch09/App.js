@@ -3,6 +3,12 @@ import { useState } from "react";
 function App() {
     const [ inputValue, setInputValue ] = useState("");
     const [ names, setNames ] = useState([]);
+    const liList = [
+        <li>{"test1"}</li>,
+        <li>{"test2"}</li>,
+        <li>{"test3"}</li>,
+        <li>{"test4"}</li>
+    ];
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -21,6 +27,7 @@ function App() {
             value={inputValue}
         />
         <ul>
+            { liList }
             { names.map((name, index) => <li key={index}>{name}</li>) }
         </ul> 
     </>
