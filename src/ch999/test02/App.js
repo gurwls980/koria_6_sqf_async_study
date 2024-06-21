@@ -1,14 +1,13 @@
 import "./App.css"
-import DataTable from "./components/DataTable/DataTable";
+import DataTable from "../../ch11/components/DataTable/DataTable";
 
 function App() {
-    return (
+    return ( 
         <div className="container">
             <h1>상품 관리 페이지</h1>
             <DataTable />
         </div>
-    );
+     );
 }
 
 export default App;
-    

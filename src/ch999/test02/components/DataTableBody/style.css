@@ -1,0 +1,13 @@
+.table-body {
+    position: relative;
+    flex-grow: 1;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    margin-top: 10px;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.table-body table {
+    border-collapse: collapse;
+}
