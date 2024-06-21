@@ -1,5 +1,6 @@
 table {
-    border-collapse: collapse;
+    box-sizing: border-box;
+    border: #dbdbdb;
     border: 1px solid #dbdbdb;
 }
 
@@ -7,4 +8,5 @@ th, td {
     box-sizing: border-box;
     border: 1px soild #dbdbdb;
     padding: 5px 10px;
+    cursor: pointer;
 }

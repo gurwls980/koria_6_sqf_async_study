@@ -8,3 +8,10 @@ th, td {
     border: 1px soild #dbdbdb;
     padding: 5px 10px;
 }
+
+.button {
+    box-sizing: border-box;
+    border: 1px solid purple;
+    width: 20px;
+    height: 5px;
+}

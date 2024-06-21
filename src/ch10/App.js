@@ -45,7 +45,7 @@ function App() {
                 [e.target.name]: e.target.value
             }
         })
-    }
+    };
 
     // const handleInputChange = (e) => {
     //     setInputData(inputData => {
@@ -105,7 +105,7 @@ function App() {
                                 <td>{password}</td>
                                 <td>{name}</td>                
                             </tr>
-                        );
+                        )
                     }) 
                 }            
             </tbody>
