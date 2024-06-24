@@ -11,13 +11,13 @@ function DataTableHeader() {
             </div>
             <div>
                 <div className="button-group">
-                    <button onClick={}>추가</button>
-                    <button onClick={}>수정</button>
-                    <button onClick={}>삭제</button>
+                    <button >추가</button>
+                    <button >수정</button>
+                    <button >삭제</button>
                 </div>
                 <div className="button-group">
-                    <button onClick={}>확인</button>
-                    <button onClick={}>취소</button>
+                    <button >확인</button>
+                    <button >취소</button>
                 </div>
             </div>
         </header>

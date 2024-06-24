@@ -7,49 +7,49 @@ export const SAMPLE_PRODUCTS = [
         price: 10000
     },
     {
-        id: 1,
+        id: 2,
         productName: "b",
         size: "s",
         color: "red",
         price: 10000
     },
     {
-        id: 2,
+        id: 3,
         productName: "c",
         size: "s",
         color: "red",
         price: 10000
     },
     {
-        id: 3,
+        id: 4,
         productName: "d",
         size: "s",
         color: "red",
         price: 10000
     },
     {
-        id: 4,
+        id: 5,
         productName: "e",
         size: "s",
         color: "red",
         price: 10000
     },
     {
-        id: 5,
+        id: 6,
         productName: "f",
         size: "s",
         color: "red",
         price: 10000
     },
     {
-        id: 6,
+        id: 7,
         productName: "g",
         size: "s",
         color: "red",
         price: 10000
     },
     {
-        id: 7,
+        id: 8,
         productName: "a",
         size: "s",
         color: "red",
