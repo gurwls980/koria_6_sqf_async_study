@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { SAMPLE_PRODUCTS } from "../../constants/sampleProducts";
 import "./style.css"
 
-function DataTableBody( { mode,setMode, products, isDeleting, setDeleting, setProducts } ) {
+function DataTableBody( { mode,setMode, products, isDeleting, setDeleting, setProducts, setEditProductId } ) {
     const [ viewProducts, setViewProducts ] = useState([]);
 
     const [ checkedAll, setCheckedAll ] = useState(false);
@@ -36,6 +36,15 @@ function DataTableBody( { mode,setMode, products, isDeleting, setDeleting, setPr
             setDeleting(false);
         }
     }, [isDeleting]);
+
+    useEffect(() => {
+        if (mode === 2) {       // 수정은 체크가 무조건 하나
+            const [ selectedProduct ] = viewProducts.filter(product => product.isChecked)
+    
+            setEditProductId(!selectedProduct ? 0 : selectedProduct.id)
+
+        }
+    }, [viewProducts]);
     
     const resetViewProducts = () => {
         setViewProducts([ ...products.map(product => ({ ...product, isChecked: false })) ])      

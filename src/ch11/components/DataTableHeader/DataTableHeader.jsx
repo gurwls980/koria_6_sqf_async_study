@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./style.css"
 import Swal from "sweetalert2";
 
-function DataTableHeader({ mode, setMode, setProducts, setDeleting }) {
+function DataTableHeader({ mode, setMode, setProducts, setDeleting, products, editProductId }) {
     
     const emptyProduct = {
         id: "",
@@ -20,6 +20,11 @@ function DataTableHeader({ mode, setMode, setProducts, setDeleting }) {
     }
 
     const [ inputData, setInputData ] = useState({...emptyProduct});
+
+    useEffect(() => {       // 체크한 값을 input에 넣는 과정
+        const [ product ] = products.filter(product => product.id === editProductId);
+        setInputData( !product ? { ...emptyProduct } : { ...product } )
+    }, [editProductId])
 
     const handleInputChange = (e) => {
         setInputData(inputData => ({
@@ -72,7 +77,30 @@ function DataTableHeader({ mode, setMode, setProducts, setDeleting }) {
         resetMode();
 
         if(mode === 2) {
-            alert("상품 수정")  
+            // alert("상품 수정")  
+            Swal.fire({
+                title: "상품 정보 수정",
+                showCancelButton: true,
+                confirmButtonText: "확인",
+                cancelButtonText: "취소"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setProducts(products => [
+                        ...products.map(product => {        // 스프레드를 쓰는 것은 '주소'를 새로 만들어 주기 위함.
+                            if (product.id === editProductId) {
+                                const { id, ...rest } = inputData;  // input 데이터를 'id를 제외'한 rest(나머지)에 넣어준 것. rest문법
+                                return {
+                                    ...product,     // 기존의 product는 id만 유지
+                                    ...rest         // 나머지 네가지를 inputData의 값으로 바꿔준 것.
+                                }
+                            }
+                            return product;
+                        })
+                    ])
+                    resetMode();
+                }
+              //return 10;  ch13 수업내용 *
+            })//.then(num => { consolo.log(num)})   then이 실행되기 위해서는 선행의 then에 return이 필요하다. *
         };
         if(mode === 3) {
             //alert("상품 삭제")      // 선택된 애들만 필터에서 제외되어야 한다 body가 가지고 있는 체크된 애들을 어떻게 가져올 것인가?
@@ -168,6 +196,5 @@ function DataTableHeader({ mode, setMode, setProducts, setDeleting }) {
         </header>
      );
 }
-
 
 export default DataTableHeader;
