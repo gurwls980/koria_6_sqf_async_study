@@ -33,9 +33,9 @@ export const menuToggleButton = css`
     background-color: white;
     cursor: pointer;
     &:hover {
-        background-color: #fafafa;
+        background-color: lightgreen;
     }
     &:active {
-        background-color: #eeeeee;
+        background-color: green;
     }
 `;

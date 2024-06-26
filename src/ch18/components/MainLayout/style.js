@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
 
 export const layout = css`
+    display: flex;
+    flex-direction: column;
     position: relative;     // 포지션 최상위로 
     box-sizing: border-box;
     margin: 100px auto;
