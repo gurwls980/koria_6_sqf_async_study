@@ -1,12 +1,14 @@
-import "./style.css"
+import "./style.css";
 
 function DataTableBody() {
-    return (  
+    return ( 
         <div className="table-body">
             <table>
                 <thead>
                     <tr>
-                        <th><input type="checkbox"  /></th>
+                        <th>
+                            <input type="text" />
+                        </th>
                         <th>상품코드</th>
                         <th>상품명</th>
                         <th>사이즈</th>
@@ -16,7 +18,9 @@ function DataTableBody() {
                 </thead>
                 <tbody>
                     <tr>
-                        <th><input type="checkbox" /></th>
+                        <th>
+                            <input type="text" />
+                        </th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -26,7 +30,8 @@ function DataTableBody() {
                 </tbody>
             </table>
         </div>
-    );
+
+     );
 }
 
 export default DataTableBody;

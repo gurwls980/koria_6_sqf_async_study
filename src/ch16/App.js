@@ -14,10 +14,10 @@ function App() {
             cancelButtonText: "아니오"
         }).then(result => {
             if(result.isConfirmed) {
-                const fileElement = document.createElement("input")
+                const fileElement = document.createElement("")
                 fileElement.setAttribute("type", "file");
                 fileElement.click();
-                fileElement.onchange() = (e) => {
+                fileElement.onchange = (e) => {
                     const file = e.target.files[0];
                     const fileReader = new FileReader();
 
@@ -35,7 +35,7 @@ function App() {
             <div className="container">
                 <h1 className="profile">프로필</h1>
                 <div className="circle" type="file" onClick={handleImgClick}>
-                    <img src={imgSrc} alt=""  />
+                    {/* <img src={imgSrc} alt=""  /> */}
                 </div>
                 <input className="name" type="text" />
                 <input className="email" type="text" />

@@ -17,7 +17,6 @@ function App() {
                 const fileElement = document.createElement("input")
                 fileElement.setAttribute("type", "file")
                 fileElement.click();
-                
                 fileElement.onchange = (e) => {
                     const file = e.target.files[0];
                     const fileReader = new FileReader();

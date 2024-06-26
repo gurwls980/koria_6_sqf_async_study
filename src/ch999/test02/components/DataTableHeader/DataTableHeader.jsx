@@ -1,27 +1,29 @@
-import "./style.css"
+import "./style.css";
 
 function DataTableHeader() {
-    return (  
+    const emptyProduct = {
+        id: "",
+        productName: "",
+        size: "",
+        color: "",
+        price: ""
+    };
+
+    
+
+    return ( 
         <header className="table-header">
             <div className="input-group">
-                <input type="text" placeholder="상품명" />
-                <input type="text" placeholder="사이즈" />
-                <input type="text" placeholder="색상" />
-                <input type="text" placeholder="가격" />
+                <input type="text" name="productName" placeholder="상품명"/>
+                <input type="text" name="size" placeholder="사이즈"/>
+                <input type="text" name="color" placeholder="색상"/>
+                <input type="text" name="price" placeholder="가격"/>
             </div>
             <div>
-                <div className="button-group">
-                    <button >추가</button>
-                    <button >수정</button>
-                    <button >삭제</button>
-                </div>
-                <div className="button-group">
-                    <button >확인</button>
-                    <button >취소</button>
-                </div>
+
             </div>
         </header>
-    );
+     );
 }
 
 export default DataTableHeader;
