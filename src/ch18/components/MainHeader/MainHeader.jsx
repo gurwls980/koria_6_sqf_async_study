@@ -1,12 +1,17 @@
 /** @jsxImportSource @emotion/react */
+import { useRecoilState } from "recoil";
 import MainContainer from "../MainContainer/MainContainer";
 import * as s from "./style";
 import { FaBars } from "react-icons/fa";    // 대문자로 시작하는 것은 component <>
+import { mainSidebarShowAtom } from "../../atoms/mainSidebarShowAtom";
  
-function MainHeader({ setMainSidebarShow }) {
+function MainHeader() {
+    const [ mainSidebarShow, setMainSidebarShow ] = useRecoilState(mainSidebarShowAtom);
+
     const handleMainMenuToggleClick = () => {
         setMainSidebarShow(true);
     }
+    
     return (
         <div css={s.layout}>
             <MainContainer>

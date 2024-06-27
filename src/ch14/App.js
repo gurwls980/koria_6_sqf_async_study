@@ -10,7 +10,7 @@ function App() {        // 이미지 불러오기
         fileElement.click();
 
         
-        fileElement.onchange = (e) => {     // 카멜표기법을 왜 안쓰는지?
+        fileElement.onchange = (e) => {     // 카멜표기법을 왜 안쓰는지? -> 자체로 정의된 단어
             const file = e.target.files[0];
 
             const fileReader = new FileReader();
