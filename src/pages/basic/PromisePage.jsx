@@ -4,7 +4,7 @@ function PromisePage(props) {
 
     const loop = (name) => {
         // random 0 < 1, 0.xxxxxxx
-        const random = Math.floor(Math.random() * 100) + 1 ;
+        const random = Math.floor(Math.random() * 10) + 1 ;
         for(let i = 0; i < random; i++) {
             console.log(`${name}: ${i}`)
         }

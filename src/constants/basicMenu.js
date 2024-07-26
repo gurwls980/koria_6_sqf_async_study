@@ -1,5 +1,6 @@
 import { IoCreateOutline, IoSearchOutline, IoRemoveCircleOutline } from "react-icons/io5";
 import { CiEdit } from "react-icons/ci";
+import { RiComputerLine } from "react-icons/ri";
 
 export const BASIC_MENU = [
     {
@@ -37,5 +38,17 @@ export const BASIC_MENU = [
         name: "PROMISE학습",
         path:"/async/basic/promise",
         icon: <IoRemoveCircleOutline />
+    },
+    {
+        id: 7,
+        name: "사이즈 등록",
+        path:"/async/basic/size/register",
+        icon: <IoRemoveCircleOutline />
+    },
+    {
+        id: 8,
+        name: "컴퓨터",
+        path:"/computer ",
+        icon: <RiComputerLine />
     },
 ];

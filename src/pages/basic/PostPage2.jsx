@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { COLOR_OPTION, SIZE_OPTION } from '../../constants/productOption';
 import axios from 'axios';
 
@@ -9,6 +9,33 @@ function PostPage2(props) {
         sizeId: "",
         colorId: "",
     });
+
+    const [ sizeOptions, setSizeOptions ] = useState([]);
+    const [ colorOptions, setColorOptions ] = useState([]);
+
+    useEffect(() => {
+        const getSizes = async () => {
+            const response = await axios.get("http://localhost:8080/api/v1/sizes");
+            setSizeOptions(response.data);
+            setProduct(product => ({
+                ...product,
+                sizeId: response.data[0].sizeId
+            }))
+        }
+
+        const getColors = async () => {
+            const response = await axios.get("http://localhost:8080/api/v1/colors");
+            setColorOptions(response.data);
+            setProduct(product => ({
+                ...product,
+                colorId: response.data[0].colorId
+            }))
+        }
+
+        getSizes();
+        getColors();
+
+    }, []);
 
     const handleInputChange = (e) => {
         setProduct(product => {
@@ -22,12 +49,21 @@ function PostPage2(props) {
 
     const handleSubmitClick = async () => {
         try {
-            const response = await axios.post("http://localhost:8080/basic/product", product);
+            const response = await axios.post("http://localhost:8080/api/v1/product", product);
             console.log(response);
         } catch (error) {
             console.error(error);
         }
     }
+
+    // const handleSubmitClick2 = async () => {
+    //     try {
+    //         const response = await axios.post("http://localhost:8080/api/v1/product", product);
+    //         console.log(response);
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
 
     return (
         <>
@@ -50,10 +86,10 @@ function PostPage2(props) {
                 </p>
                 <p>
                     <label htmlFor="">사이즈 : </label>
-                    <select name="sizeId" onChange={handleInputChange}>
+                    <select name="sizeId" onChange={handleInputChange} value={product.sizeId}>
                         {
-                            SIZE_OPTION.map(size => 
-                            <option key={size.id} value={size.id}>{size.name}</option>)
+                            sizeOptions.map(size => 
+                            <option key={size.sizeId} value={size.sizeId}>{size.sizeName}</option>)
                         }
                         
                     </select> 
@@ -61,16 +97,17 @@ function PostPage2(props) {
                 </p>
                 <p>
                     <label htmlFor="">색상 : </label>
-                    <select name="colorId" onChange={handleInputChange}>
+                    <select name="colorId" onChange={handleInputChange} value={product.colorId}>
                         {
-                            COLOR_OPTION.map(color => 
-                            <option key={color.id} value={color.id}>{color.name}</option>)
+                            colorOptions.map(color => 
+                            <option key={color.colorId} value={color.colorId}>{color.colorName}</option>)
                         }
                             
                     </select>
                 </p>
                 <p>
                     <button onClick={handleSubmitClick}>등록하기</button>
+                    {/* <button onClick={handleSubmitClick2}>등록하기2</button> */}
                 </p>
             </main>
         </>
